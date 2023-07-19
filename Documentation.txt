@@ -1,0 +1,27 @@
+1. ALex created team repository
+2. Cloned AbschlussprojektCloud2023 repository
+3. Read readme.md and followed instructions
+4. Downloaded and installed MongoDB 6.0 Community Edition on Windows
+5. .enx Example not in public folder but server folder, for renaming
+6 Bei npm i in public file -> 3 moderate 1 criticial severity vulnerabilities
+node_modules/simple-update-notifier/node_modules/semver
+  simple-update-notifier  1.0.7 - 1.1.0
+  Depends on vulnerable versions of semver
+  node_modules/simple-update-notifier
+    nodemon  2.0.19 - 2.0.22
+    Depends on vulnerable versions of simple-update-notifier
+    node_modules/nodemon
+
+7.Open another terminal in folder, Also make sure mongodb is running in background.
+```shell
+cd server
+npm start
+
+Server started on 5000
+cannot connect to DB
+connect ECONNREFUSED ::1:27017
+MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\Sesar Films\Desktop\AbschlussprojektCloud2023\server\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:175:23)    
+    at listOnTimeout (node:internal/timers:569:17)
+
+solution: MONGO_URL="mongodb://0.0.0.0:27017/chat" in .env File

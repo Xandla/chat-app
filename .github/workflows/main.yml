@@ -1,22 +1,21 @@
-name: Build and Test
+name: Test
 
 on:
   push:
     branches:
-      - main
+      - 'staging'
 
 jobs:
   check-dist:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
       - uses: actions/checkout@v3
 
-      - name: Set Node.js 18.x
+      - name: Set Node.js 18-alpine
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18-alpine
 
       - name: Change Working Directory
         working-directory: ./server

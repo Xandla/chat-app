@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - 88:5000
+    volumes:
+      - ./server:/app
+    
+  public:
+    build:
+      context: ./public
+    environment:
+      - BOOK_API_SERVER=http://public:5000
+    ports:
+      - 80:5000
+    volumes:
+      - ./public:/app
+    depends_on:
+      - server
+
+  nginx:
+    image: nginx/
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/www/my_project:/var/www/project1
+  
+  node-app:
+    build: .
+    image: node-app
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
+    ports:
+      - '8085:8085'
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/server
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - '27017:27017'

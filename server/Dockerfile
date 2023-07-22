@@ -1,11 +1,9 @@
-FROM node:18
+FROM node:alpine AS build
+WORKDIR /server
+COPY package.json .
+RUN npm i
+COPY . .
+RUN npm run build
 
-WORKDIR /server/
-COPY package.json package-lock.json /server/
-RUN npm install --production
-
-COPY . /server/
-
-EXPOSE 8085
-
-CMD ["node", "index.js"]
+FROM nginx
+COPY --from=build /public/build usr/share/nginx/html

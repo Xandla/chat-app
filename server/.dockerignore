@@ -1,14 +1,1 @@
 node_modules
-.env
-.idea
-.git
-.md
-.vscode
-.dockerignore
-.gitignore
-config
-build
-docker-compose.yaml
-Dockerfile
-Makefile
-README.md

@@ -1,9 +1,13 @@
-FROM node:alpine AS build
-WORKDIR /server
-COPY package.json .
-RUN npm i
-COPY . .
-RUN npm run build
+FROM node:18-alpine
 
-FROM nginx
-COPY --from=build /public/build usr/share/nginx/html
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["npm", "start"]

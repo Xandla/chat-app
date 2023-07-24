@@ -1,0 +1,17 @@
+.git
+.vscode
+.dockerignore
+.gitignore
+.env
+.aws
+config
+build
+**/node_modules/
+**/dist
+npm-debug.log
+.coverage
+.coverage.*
+docker-compose.yaml
+Dockerfile
+Makefile
+README.md

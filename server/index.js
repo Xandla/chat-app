@@ -7,6 +7,10 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
+//const { MongoClient } = require('mongodb');
+//const url = "mongodb+srv://huberk316:lfMQkP1y4IFOI5aW@cluster0.wbagw0h.mongodb.net/?retryWrites=true&w=majority";
+//const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
 app.use(cors());
 app.use(express.json());
 
@@ -23,10 +27,14 @@ mongoose
     console.log(err.message);
   });
 
+app.get('/api', (req, res) => {
+  res.send('Hello, this is the root path!');
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen(process.env.PORT, () =>
+const server = app.listen(process.env.PORT,'0.0.0.0', () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 const io = socket(server, {
@@ -42,7 +50,7 @@ io.on("connection", (socket) => {
   socket.on("add-user", (userId) => {
     onlineUsers.set(userId, socket.id);
   });
-
+  
   socket.on("send-msg", (data) => {
     const sendUserSocket = onlineUsers.get(data.to);
     if (sendUserSocket) {
@@ -50,3 +58,4 @@ io.on("connection", (socket) => {
     }
   });
 });
+

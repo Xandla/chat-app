@@ -15,7 +15,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      MONGO_URL: mongodb+srv://admin:ChatApp23@freecluster.ave7m16.mongodb.net/?retryWrites=true&w=majority
+      MONGO_URL: mongodb+srv://admin:KLnmif5jfk6gxjff@freecluster.ave7m16.mongodb.net/?retryWrites=true&w=majority
   nginx:
     image: nginx
     ports:

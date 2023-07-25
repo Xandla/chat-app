@@ -1,24 +1,25 @@
-name: Run Tests on Staging Branch
+name: Tests on Staging
 
 on:
   push:
-    branches:
-      - staging
+    branches: [ staging ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node environment
-        uses: actions/setup-node@v2
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
+          cache-dependency-path: './server/package-lock.json'
 
       - name: Install Node dependencies
-        run: npm i
+        run: npm install
         working-directory: server
 
       - name: Run tests

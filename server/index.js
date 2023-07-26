@@ -8,7 +8,7 @@ const socket = require("socket.io");
 require("dotenv").config();
 
 //const { MongoClient } = require('mongodb');
-//const url = mongodb+srv://admin:KLnmif5jfk6gxjff@freecluster.ave7m16.mongodb.net/?retryWrites=true&w=majority;
+//const url = mongodb+srv://csdc:E26ONLiquPveEf9M@chat.qpo6lyz.mongodb.net/;
 //const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cors());

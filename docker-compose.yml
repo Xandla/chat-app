@@ -4,7 +4,6 @@ services:
   frontend:
     build:
       context: ./public
-    ports:
       - "3000:3000"
     depends_on:
       - backend
@@ -15,7 +14,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      MONGO_URL: mongodb+srv://admin:ChatApp23@freecluster.ave7m16.mongodb.net/?retryWrites=true&w=majority
+      MONGO_URL: mongodb+srv://admin:G6WUuzoXrn8wFsgy@chat.qpo6lyz.mongodb.net/?retryWrites=true&w=majority 
+    
   nginx:
     image: nginx
     ports:

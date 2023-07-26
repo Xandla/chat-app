@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        uses: actions/checkout@v3
 
       - name: Set up Node environment
         uses: actions/setup-node@v3

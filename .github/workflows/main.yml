@@ -1,4 +1,4 @@
-name: Run Tests on Staging Branch
+name: Tests on Staging
 
 on:
   push:
@@ -10,11 +10,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Set up Node environment
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'
+          cache-dependency-path: './server/package-lock.json'
 
       - name: Install dependencies
         run: npm install

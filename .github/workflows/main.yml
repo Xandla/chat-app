@@ -2,8 +2,9 @@ name: Tests on Staging
 
 on:
   push:
-    branches: [staging]
-
+    branches: 
+      - staging
+      - laslo
 jobs:
   test:
     runs-on: ubuntu-latest

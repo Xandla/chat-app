@@ -24,7 +24,7 @@ mongoose
   });
 
 app.get('/api', (req, res) => {
-  res.send('Hello, this is the root path!');
+  res.send('yo, git, this is the root path!');
 });
 
 app.use("/api/auth", authRoutes);

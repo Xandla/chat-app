@@ -15,7 +15,7 @@ services:
     ports:
       - "5000:5000"
     #environment:
-    #  MONGO_URL: mongodb+srv://csdc:E26ONLiquPveEf9M@chat.qpo6lyz.mongodb.net/
+    #  MONGO_URL: mongodb+srv://madmanic:campus09@cluster0.b4ehglp.mongodb.net/
 
   nginx:
     image: nginx
